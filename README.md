@@ -4,13 +4,6 @@
 
 My FYP project. 
 
-<p align="left"><img width="100%" src="assets/title.png" /></p>
-
-
-Project Title: __Towards Superior Control in Automatic Face Editing with Generative Adversarial Networks__
-
-__Abstract__: Generative Adversarial Networks (GANs) have been widely used in image manipulation tasks such as local editing and image interpolation. This project examines StyleMapGAN, a novel approach that evolves from StyleGAN by replacing AdaIN with intermediate latent space carrying information on spatial dimensions, hence capable of performing high-quality local editing. In addition, by introducing a BiSeNet-based face parsing model, this project develops a fully automated process in local editing of human faces that only takes a few seconds. This project demonstrates that the face parsing model outputs masks that rivals manually labelled face datasets. Furthermore, this project explores more controls in local editing by introducing a pair of unaligned masks during stylemap mixing in W+ space in the generator. Local editing with interpolation is achieved and a demo application is developed to demonstrate the local editing process. Source code is avaliable at https://github.com/mushroomsc/StyleMapGAN.local_editing
-
 ## Installation
 
 Clone this repository:
