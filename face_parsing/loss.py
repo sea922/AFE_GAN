@@ -72,4 +72,4 @@ if __name__ == '__main__':
     loss2 = criteria2(logits2, lbs)
     loss = loss1 + loss2
     print(loss.detach().cpu())
-    loss.backward()
+    loss.backward(retain_graph=True)

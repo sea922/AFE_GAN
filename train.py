@@ -371,7 +371,7 @@ def ddp_main(rank, world_size, args):
         adv_loss_val = adv_loss.item()
 
         g_optim.zero_grad()
-        g_loss.backward()
+        g_loss.backward(retain_graph=True)
         gather_grad(
             g_module.parameters(), world_size
         )  # Explicitly synchronize Generator parameters. There is a gradient sync bug in G.
@@ -529,7 +529,7 @@ if __name__ == "__main__":
     parser.add_argument("--iter", type=int, default=1400000)
     parser.add_argument("--save_network_interval", type=int, default=10000)
     parser.add_argument("--small_generator", action="store_true")
-    parser.add_argument("--batch", type=int, default=16, help="total batch sizes")
+    parser.add_argument("--batch", type=int, default=8, help="total batch sizes")
     parser.add_argument("--size", type=int, choices=[128, 256, 512, 1024], default=256)
     parser.add_argument("--r1", type=float, default=10)
     parser.add_argument("--d_reg_every", type=int, default=16)
