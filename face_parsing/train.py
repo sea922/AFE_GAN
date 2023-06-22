@@ -15,6 +15,7 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 import torch.nn.functional as F
 import torch.distributed as dist
+from argparse import Namespace
 
 import os
 import os.path as osp
@@ -42,14 +43,20 @@ def parse_args():
 
 
 def train():
-    args = parse_args()
+    args = Namespace(local_rank=0)  # Đặt local_rank thành giá trị tùy ý
     torch.cuda.set_device(args.local_rank)
-    dist.init_process_group(
-                backend = 'nccl',
-                init_method = 'tcp://127.0.0.1:33241',
-                world_size = torch.cuda.device_count(),
-                rank=args.local_rank
-                )
+    
+    if torch.cuda.is_available():
+        torch.distributed.init_process_group(
+            backend='nccl',
+            init_method='tcp://localhost:33241',
+            world_size=torch.cuda.device_count(),
+            rank=args.local_rank
+        )
+    else:
+        torch.distributed.init_process_group(backend='gloo')  # Khởi tạo môi trường phân tán với backend gloo khi không sử dụng GPU
+    
+    respth = ''  # Đặt đường dẫn thư mục ghi log tùy ý
     setup_logger(respth)
 
     # dataset

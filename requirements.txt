@@ -1,0 +1,17 @@
+jinja2
+numpy
+scikit-image==0.16.2
+munch==2.5.0
+scipy==1.2.1 
+matplotlib 
+scikit-learn
+lmdb
+tqdm
+opencv-python
+flask==1.0.2 
+pillow==7.0.0
+ninja
+
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.10.0+cu113
+torchvision==0.11.1+cu113
