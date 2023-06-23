@@ -248,7 +248,9 @@ if __name__ == "__main__":
         choices=["celeba_hq", "afhq", "lsun/church_outdoor", "lsun/car"],
     )
     parser.add_argument("--interpolation_step", type=int, default=1)
-    parser.add_argument("--ckpt", type=str, default="expr/checkpoints/celeba_hq_256_8x8.pt")
+    # parser.add_argument("--ckpt", type=str, default="expr/checkpoints/celeba_hq_256_8x8.pt")
+    parser.add_argument("--ckpt", type=str, default="expr/checkpoints/celeba_hq_8x8_20M_revised.pt")
+
     parser.add_argument(
         "--MAX_CONTENT_LENGTH", type=int, default=10000000
     )  # allow maximum 10 MB POST
