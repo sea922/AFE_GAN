@@ -258,7 +258,7 @@ if __name__ == "__main__":
 
     device = "cuda"
     base_path = f"demo/static/components/img/{args.dataset}/"
-    mask_path = f"/mnt/xjzhang/face-parsing.PyTorch/res/test_res/"
+    mask_path = f"/StyleMapGAN_Auto-Recognition/face_parsing/res/test_res/"
     ckpt = torch.load(args.ckpt)
 
     train_args = ckpt["train_args"]
